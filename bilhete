@@ -1,0 +1,77 @@
+public class Bilhete {
+    private Usuario usuario;
+    private String cpf;
+    private Sala sala;
+    private Sessao secao;
+    private Filme filme;
+    private double valor;
+    private String cadeira;
+    
+    // Construtor
+    public Bilhete(Usuario usuario, String cpf, Sala sala, Sessao secao, Filme filme, double valor, String cadeira) {
+        this.usuario = usuario;
+        this.cpf = cpf;
+        this.sala = sala;
+        this.secao = secao;
+        this.filme = filme;
+        this.valor = valor;
+        this.cadeira = cadeira;
+    }
+    
+    // Métodos getters e setters para todos os atributos
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+
+    public Sessao getSecao() {
+        return secao;
+    }
+
+    public void setSecao(Sessao secao) {
+        this.secao = secao;
+    }
+
+    public Filme getFilme() {
+        return filme;
+    }
+
+    public void setFilme(Filme filme) {
+        this.filme = filme;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
+
+    public String getCadeira() {
+        return cadeira;
+    }
+
+    public void setCadeira(String cadeira) {
+        this.cadeira = cadeira;
+    }
+}

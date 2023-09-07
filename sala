@@ -1,0 +1,28 @@
+public class Sala {
+    private int[] horarios;
+    private Sessao[] sessoes;
+
+    public Sala(Sessao[] sessoes, int[] horarios) {
+        this.sessoes = sessoes;
+        this.horarios = horarios;
+    }
+
+	public int[] getHorarios() {
+		return horarios;
+	}
+
+	public void setHorarios(int[] horarios) {
+		this.horarios = horarios;
+	}
+
+	public Sessao[] getSessoes() {
+		return sessoes;
+	}
+
+	public void setSessoes(Sessao[] sessoes) {
+		this.sessoes = sessoes;
+	}
+
+    
+   
+}

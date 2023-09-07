@@ -1,0 +1,187 @@
+package atividade1;
+
+import java.util.Scanner;
+
+public class Main {
+	 public static String exib[][]= new String[10][15];
+	 
+	 public static void exibir() {
+		 for(int t=0;t<10;t++)
+     		System.out.println(exib[t][0] + " | " + exib[t][1] + " | " + exib[t][2] + " | " + exib[t][3] + " | " + exib[t][4] + " | " + exib[t][5] + " | " + exib[t][6] + " | " + exib[t][7] + " | " + exib[t][8] + " | " + exib[t][9] + " | " + exib[t][10] + " | " + exib[t][11] + " | " + exib[t][12] + " | " + exib[t][13] + " | " + exib[t][14]);
+	 }
+	 
+    public static void main(String[] args) {
+        //Usuario u = new Usuario("usuario", "cpf", "senha", 34, "sexo", "usuario@mail.com", "cartao", "numcartao", "codcartao");
+        Filme f = new Filme("nome", 2, "sinopse", 10.00);
+        Filme f2 = new Filme("name", 3, "sinopsis", 20.00);
+        Sessao se = new Sessao(f);
+        Sessao se2 = new Sessao(f2);
+        Sessao[] sessoes = {se, se2};
+        int[] horarios = {12, 15};
+        Sala s = new Sala(sessoes, horarios);
+        double total = 0;
+        
+        
+        int loop = 0;
+        
+        Scanner input = new Scanner(System.in);
+        
+        while(loop == 0) {
+        System.out.println("digite seu nome, cpf, senha, sexo, email, cartão, numero do cartão e código do cartão, idade" + " nessa ordem");
+        System.out.println("nome-");
+        String nome = input.nextLine();
+        System.out.println("cpf-");
+        String cpf = input.nextLine();
+        System.out.println("senha-");
+        String senha = input.nextLine();
+        System.out.println("sexo-");
+        String sexo = input.nextLine();
+        System.out.println("email-");
+        String email = input.nextLine();
+        System.out.println("cartao-");
+        String cartao = input.nextLine();
+        System.out.println("número do cartão-");
+        String numcartao = input.nextLine();
+        System.out.println("código do cartão-");
+        String codcartao = input.nextLine();
+        System.out.println("idade-");
+        int idade = input.nextInt();
+        Usuario user = new Usuario(nome, cpf, senha, idade, sexo, email, cartao, numcartao, codcartao);
+        
+        int loop1 = 0;
+        
+        while(loop1==0) {
+        	System.out.println("escolha a função a ser executada");
+        	System.out.println("1- comprar produtos");
+        	System.out.println("2- ver seções disponíveis");
+        	System.out.println("3- ver cadeiras disponíveis em uma seção");
+        	System.out.println("4- selecionar cadeiras a serem compradas");
+        	System.out.println("5- concluir compras e sair do usuario");
+        	System.out.println("6- concluir compras e encerrar programa");
+        	
+        	String escolha = input.nextLine();
+        	switch (escolha) {
+        	
+        	case "1":
+        		System.out.println("escolha o filme(em ordem numerica) e a quantidade de cada produto a ser comprado");
+        		System.out.println("filme");
+        		int film = input.nextInt();
+        		System.out.println("bilhetes");
+        		int bil = input.nextInt();
+        		System.out.println("pipoca");
+        		int pip = input.nextInt();
+        		System.out.println("chocolate");
+        		int choc = input.nextInt();
+        		System.out.println("refrigerante");
+        		int ref = input.nextInt();
+        		System.out.println("suco");
+        		int suco = input.nextInt();
+        		System.out.println("agua");
+        		int agua = input.nextInt();
+        		
+        		
+        		if(film == 1) {
+        		    total= Compra.bilhete(f, bil)+(Produtos.pipoca.getPreço()*pip)+(Produtos.chocolate.getPreço()*choc)+(Produtos.refrigerante.getPreço()*ref)+(Produtos.suco.getPreço()*suco)+(Produtos.agua.getPreço()*agua);
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        		}
+        		
+        		else if(film == 2) {
+        			total= Compra.bilhete(f2, bil)+(Produtos.pipoca.getPreço()*pip)+(Produtos.chocolate.getPreço()*choc)+(Produtos.refrigerante.getPreço()*ref)+(Produtos.suco.getPreço()*suco)+(Produtos.agua.getPreço()*agua);
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        		}
+        		
+        		else {
+        			System.out.println("nome não existe");
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        		}
+        		
+        	case "2":      		
+        		System.out.println(horarios[0]+" horas"+" até "+(horarios[0]+f.getDuracao())+" horas"+" | "+ f.getNome()+" | "+f.getValor()+" reais");
+        		System.out.println(horarios[1]+" horas"+" até "+(horarios[1]+f2.getDuracao())+" horas"+" | "+ f2.getNome()+" | "+f2.getValor()+" reais");
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        		
+        	case "3":
+        		System.out.println("digite a seção escolhida para visualização");
+        		int choice = input.nextInt();
+        		
+        		if(choice==1) {
+        			for(int l=0;l<10;l++) {
+                		for(int c=0;c<15;c++) {
+                			if(se.getCadeiras()[l][c] == true)
+                				exib[l][c] = "X";
+                			else
+                				exib[l][c] = "O";
+                		}
+                	}
+        	}
+        		else if(choice==2) {
+        			for(int l=0;l<10;l++) {
+                		for(int c=0;c<15;c++) {
+                			if(se2.getCadeiras()[l][c] == true)
+                				exib[l][c] = "X";
+                			else
+                				exib[l][c] = "O";
+                		}
+                	}
+        		}
+        	    exibir();
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        	
+        	case "4":
+        		int loop2 = 0;
+        		int choice2 = 0;
+        		while(loop2==0) {
+        		System.out.println("digite a seção escolhida para compra");
+        		choice2 = input.nextInt();
+        		System.out.println("digite a linha da cadeira desejada");
+        		int l2 = input.nextInt();
+        		System.out.println("digite a coluna da cadeira desejada");
+        		int c2 = input.nextInt();
+        		
+        		if(choice2==1)
+        		se.reservarCadeira(l2, c2);
+        		
+        		else if(choice2==2)
+        		se2.reservarCadeira(l2, c2);
+        		
+        		System.out.println("digite 0 para concluir processo e 1 para continuar selecionando cadeiras");
+        		int escolha2 = input.nextInt();
+        		
+        		switch (escolha2) {
+        		case 1:
+        			break;
+        			
+        		case 0:
+        			loop2++;
+        		}
+        		}
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        		
+        	case "5":
+        		System.out.println("compra encerrada");
+        		System.out.println("custo= " + total);
+        		loop1++;
+        		System.out.println("-----------------------------------------------------------------------------");
+        		break;
+        		
+        	case "6":
+        		System.out.println("compra encerrada");
+        		System.out.println("custo= " + total);
+        		System.out.println("-----------------------------------------------------------------------------");
+        		System.out.println("progama encerrado");
+        		loop1++;
+        		loop++;
+        	
+        	}
+        	
+           
+        }
+}
+}
+}

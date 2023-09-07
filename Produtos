@@ -1,0 +1,29 @@
+package atividade1;
+
+ public enum Produtos {
+	 pipoca ("pipoca", 8.50),
+	 chocolate ("chocolate", 3.50),
+	 refrigerante ("refrigerante", 5.50),
+	 suco ("suco", 4.50),
+	 agua("agua", 2.00);
+	 
+	 private String nome;
+	 private double preço;
+	
+	 Produtos(String nome, double preço) {
+		    this.nome = nome;
+			this.preço = preço;
+		}
+	 
+	 public double getPreço() {
+		 return preço;
+	 }
+
+	 public double compra(int quantidade, CupomPromocional cupom) {
+		double valorTotal = this.valor * quantidade;
+		if (cupom != null) {
+			valorTotal = valorTotal - (valorTotal * cupom.getDesconto());
+		}
+		return valorTotal;
+	}// sobrecarga
+ }

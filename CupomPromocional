@@ -1,0 +1,19 @@
+package atividade1;
+
+public enum CupomPromocional {
+	quarto("quarto", 0.75),
+	meia("meia", 0.5),
+	cheia("cheia", 0.0);
+	
+	private String nome;
+	private double desconto;
+	 
+	CupomPromocional(String nome, double desconto){
+		this.nome = nome;
+		this.desconto = desconto;
+	}
+	
+	public double getDesconto() {
+		return desconto;
+	}
+}

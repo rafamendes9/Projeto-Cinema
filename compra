@@ -1,0 +1,32 @@
+package atividade1;
+
+
+public class Compra {
+    private Usuario usuario;
+
+    public Compra(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+	public static double bilhete(Filme filme, int quantidade) {
+    	double valor = filme.getValor();
+    	double total = valor*quantidade;
+    	return total;
+    }
+	public static double bilhete(Filme filme, int quantidade, CupomPromocional cupom) {
+    double valor = filme.getValor();
+    double total = valor * quantidade;
+    if (cupom != null) {
+        total = total - (total * cupom.getDesconto());
+    }
+    return total;
+} // sobrecarga 
+}

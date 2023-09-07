@@ -1,0 +1,30 @@
+import java.util.List;
+
+public class Sessao {
+    private Filme filme;
+    private boolean[][] cadeiras; // matriz 2D que representa as cadeiras da sala
+    
+    public Sessao(Filme filme) {
+        this.filme = filme;
+        this.cadeiras = new boolean[10][15]; // sala com 150 cadeiras (10 linhas x 15 colunas)
+    }
+    
+    public Sessao(int capacidade, String string) {
+    }
+
+    public boolean[][] getCadeiras() {
+        return cadeiras;
+    }
+    
+    // método para reservar uma cadeira na sessão
+    public boolean reservarCadeira(int linha, int coluna) {
+        if (cadeiras[linha][coluna] == true) { // se a cadeira estiver ocupada, não pode ser reservada
+            return false;
+        } else {
+            cadeiras[linha][coluna] = true; // marca a cadeira como ocupada
+            return true;
+        }
+    }
+
+    
+}
